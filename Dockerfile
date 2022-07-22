@@ -11,7 +11,6 @@ RUN pip install https://github.com/bitsy-ai/tensorflow-arm-bin/releases/download
 RUN pip install --upgrade numpy
 
 WORKDIR /app
-COPY . /app/
 
 ARG user=appuser
 ARG group=appuser
@@ -34,5 +33,8 @@ USER root
 RUN python /app/micmon/setup.py build install
 
 USER appuser
+
+COPY . /app/
+
 CMD [ "python", "/app/test.py"]
 
