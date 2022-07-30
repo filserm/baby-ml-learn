@@ -1,0 +1,5 @@
+FROM filsermichael/baby-learn:v1
+
+COPY . /app/
+
+CMD [ "python", "/app/run_ml_algo.py"]
