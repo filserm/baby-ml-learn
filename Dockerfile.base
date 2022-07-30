@@ -29,11 +29,12 @@ RUN pip install matplotlib
 RUN git clone https://github.com:/BlackLight/micmon.git
 
 USER root
-COPY . /app/
 RUN python /app/micmon/setup.py build install
-RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  /app/datasets/sound-detect/audio  /app/datasets/sound-detect/data
 
 USER appuser
+
+RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  /app/datasets/sound-detect/audio  /app/datasets/sound-detect/data
+
+COPY . /app/
+
 CMD [ "python", "/app/test.py"]
-
-
