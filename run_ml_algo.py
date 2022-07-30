@@ -3,6 +3,8 @@ import os
 from micmon.audio import AudioDevice
 from micmon.model import Model
 
+from modules.play_radiostation import radio
+
 model_dir = os.path.expanduser('/app/models/sound-detect')
 model = Model.load(model_dir)
 audio_system = 'alsa'        # Supported: alsa and pulse
@@ -14,5 +16,9 @@ with AudioDevice(audio_system, device=audio_device) as source:
         source.pause()
         prediction = model.predict(sample)
         print(prediction)
+        #play radio
+        radio()
         # Resume recording
         source.resume()
+
+

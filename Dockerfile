@@ -37,6 +37,6 @@ RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channe
 
 COPY . /app/
 
-CMD [ "python", "/app/test.py"]
+CMD [ "python", "/app/run_ml_algo.py"]
 
 
