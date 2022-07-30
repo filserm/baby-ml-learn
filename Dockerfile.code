@@ -1,4 +1,4 @@
-FROM filsermichael/baby-learn:v1
+FROM filsermichael/baby-learn:latest
 
 COPY . /app/
 
