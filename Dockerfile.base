@@ -33,10 +33,9 @@ RUN python /app/micmon/setup.py build install
 
 USER appuser
 
+COPY . /app/
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  /app/datasets/sound-detect/audio  /app/datasets/sound-detect/data
 
-COPY . /app/
-
-#CMD [ "python", "/app/run_ml_algo.py"]
+CMD [ "python", "/app/test.py"]
 
 
