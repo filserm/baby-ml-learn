@@ -1,0 +1,2 @@
+soco #this is for sonos connection
+phue #this is for philips hue
