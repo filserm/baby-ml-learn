@@ -1,4 +1,5 @@
-FROM filsermichael/baby-learn:latest
+#FROM filsermichael/baby-learn:latest
+FROM baby-learn:v1
 
 RUN pip install -r requirements.txt
 COPY . /app/

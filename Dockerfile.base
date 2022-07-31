@@ -25,10 +25,10 @@ RUN usermod -G audio appuser
 USER ${uid}:${gid}
 
 #raspi braucht eine andere tensorflow version
-RUN pip install https://github.com/bitsy-ai/tensorflow-arm-bin/releases/download/v2.4.0-rc2/tensorflow-2.4.0rc2-cp37-none-linux_aarch64.whl
+#RUN pip install https://github.com/bitsy-ai/tensorflow-arm-bin/releases/download/v2.4.0-rc2/tensorflow-2.4.0rc2-cp37-none-linux_aarch64.whl
 
 #x386 architectur tensorflow version
-#RUN pip install tensorflow
+RUN pip install tensorflow
 
 RUN pip install numpy==1.21.6
 RUN pip install matplotlib
@@ -42,5 +42,4 @@ RUN python /app/micmon/setup.py build install
 USER appuser
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  /app/datasets/sound-detect/audio  /app/datasets/sound-detect/data
 
-
-CMD [ "python", "/app/test.py"]
+CMD [ "python", "/app/model.py"]

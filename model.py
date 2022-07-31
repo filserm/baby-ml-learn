@@ -5,10 +5,12 @@ from micmon.dataset import Dataset
 from micmon.model import Model
 
 # This is a directory that contains the saved .npz dataset files
-datasets_dir = os.path.expanduser('/app/datasets/sound-detect/data')
+#datasets_dir = os.path.expanduser('/app/datasets/sound-detect/data')
+datasets_dir = os.path.expanduser('datasets/sound-detect/data')
 
 # This is the output directory where the model will be saved
-model_dir = os.path.expanduser('/app/models/sound-detect')
+#model_dir = os.path.expanduser('/app/models/sound-detect')
+model_dir = os.path.expanduser('models/sound-detect')
 
 # This is the number of training epochs for each dataset sample
 epochs = 2
