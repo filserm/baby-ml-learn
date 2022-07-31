@@ -5,7 +5,7 @@ from micmon.model import Model
 
 from modules.play_radiostation import radio
 
-model_dir = os.path.expanduser('/app/models/sound-detect')
+model_dir = os.path.expanduser('models/sound-detect')
 model = Model.load(model_dir)
 audio_system = 'alsa'        # Supported: alsa and pulse
 audio_device = 'plughw:1,0'  # Get list of recognized input devices with arecord -l
