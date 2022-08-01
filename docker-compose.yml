@@ -3,7 +3,7 @@ services:
   baby-learn:
     build: 
       context: backend
-      dockerfile: Dockerfile.base
+      dockerfile: ./Dockerfile.base
     ports:
       - "4501:4501"
     container_name: "baby-learn"
@@ -13,7 +13,7 @@ services:
   baby-monitor:
     build: 
       context: frontend
-      dockerfile: Dockerfile.code
+      dockerfile: ./Dockerfile.code
     ports:
       - "4501:4501"
     container_name: "baby-monitor"
