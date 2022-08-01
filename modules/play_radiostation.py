@@ -37,7 +37,7 @@ def radio():
         metadata = meta_template.format(title=station["title"], service=tunein_service)
 
         if 'Ö3' in title:
-            
             print(mySonos.play_uri(uri, metadata))
-            time.sleep(5)
             break
+    
+    print ("playing ...")
