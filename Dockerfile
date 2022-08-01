@@ -41,6 +41,7 @@ RUN pip install protobuf==3.20.*
 
 RUN pip install numpy==1.21.6
 RUN pip install numpy --upgrade
+RUN pip install -r requirements.txt
 #RUN pip install matplotlib
 
 RUN git clone https://github.com/filserm/micmon
@@ -52,4 +53,9 @@ RUN python micmon/setup.py build install
 USER appuser
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
-CMD [ "python", "model.py"]
+
+# build the model
+#CMD [ "python", "model.py"]
+
+# run the mic
+#CMD [ "python", "run_ml_algo.py"]

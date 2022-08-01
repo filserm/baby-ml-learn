@@ -3,10 +3,4 @@ services:
   baby-learn:
     build: 
       context: .
-      dockerfile: Dockerfile.base
-    container_name: "baby-learn"  
-  baby-monitor:
-    build: 
-      context: .
-      dockerfile: Dockerfile.code
-    container_name: "baby-monitor"
+    container_name: "baby-ml"  
