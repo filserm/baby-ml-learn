@@ -2,7 +2,7 @@ version: "3.7"
 services:
   baby-learn:
     build: 
-      context: .
+      context: Dockerfile.base
     ports:
       - "4501:4501"
     container_name: "baby-learn"
@@ -11,7 +11,7 @@ services:
   
   baby-monitor:
     build: 
-      context: .
+      context: Dockerfile.code
     ports:
       - "4501:4501"
     container_name: "baby-monitor"
