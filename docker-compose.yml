@@ -4,21 +4,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.base
-    ports:
-      - "4501:4501"
-    container_name: "baby-learn"
-    networks:
-      - network-planner
-  
+    container_name: "baby-learn"  
   baby-monitor:
     build: 
       context: .
       dockerfile: Dockerfile.code
-    ports:
-      - "4501:4501"
     container_name: "baby-monitor"
-    networks:
-      - network-planner
-networks:
-    network-planner:
-        name: network-planner
