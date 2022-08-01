@@ -25,7 +25,7 @@ def radio():
     mySonos = SoCo(speaker)
 
     if mySonos:
-        stations = mySonos.get_favorite_radio_stations(preset, limit)
+        stations = mySonos.music_library.get_favorite_radio_stations(preset, limit)
 
     #print(stations)
 

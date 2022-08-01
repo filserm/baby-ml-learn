@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  baby-learn:
+    build: 
+      context: .
+    ports:
+      - "4501:4501"
+    container_name: "baby-learn"
+    networks:
+      - network-planner
+  
+    baby-monitor:
+      build: 
+        context: .
+      ports:
+        - "4501:4501"
+      container_name: "baby-monitor"
+      networks:
+        - network-planner
+networks:
+    network-planner:
+        name: network-planner

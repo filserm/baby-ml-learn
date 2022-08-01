@@ -20,3 +20,6 @@ docker image push filsermichael/baby-learn:latest
 ```
 docker build -f Dockerfile.code -t baby-monitor:v1 .
 ```
+
+### run the app
+docker run -it --device=/dev/snd:/dev/snd --user appuser baby-monitor:v1 /bin/bash
