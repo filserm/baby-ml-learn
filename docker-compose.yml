@@ -9,14 +9,14 @@ services:
     networks:
       - network-planner
   
-    baby-monitor:
-      build: 
-        context: .
-      ports:
-        - "4501:4501"
-      container_name: "baby-monitor"
-      networks:
-        - network-planner
+  baby-monitor:
+    build: 
+      context: .
+    ports:
+      - "4501:4501"
+    container_name: "baby-monitor"
+    networks:
+      - network-planner
 networks:
     network-planner:
         name: network-planner
