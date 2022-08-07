@@ -53,9 +53,10 @@ RUN git clone https://github.com/filserm/micmon
 
 RUN python micmon/setup.py build install
 
-USER appuser
 COPY . /app/
-
+RUN chown -R ${uid}:${gid} /app
+RUN chmod 755 /app
+USER appuser
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
 # build the model
