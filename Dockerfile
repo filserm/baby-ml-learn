@@ -21,8 +21,6 @@ ARG uid=1000
 ARG gid=1000
 RUN groupadd -g ${gid} ${group}
 RUN useradd -u ${uid} -g ${group} -s /bin/sh -m ${user} # 
-RUN chown -R ${uid}:${gid} /app
-RUN chmod 755 /app
 
 #give rights to microphone
 RUN usermod -G audio appuser
@@ -54,7 +52,10 @@ USER root
 RUN python micmon/setup.py build install
 
 USER appuser
+RUN chown -R ${uid}:${gid} /app
+RUN chmod 755 /app
 COPY . /app/
+
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
 # build the model
