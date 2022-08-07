@@ -12,7 +12,7 @@ RUN apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran libg
 ENV PYTHONPATH="/app/micmon/:/home/appuser/.local/bin/"
 
 WORKDIR /app
-COPY . /app/
+COPY README.md /app/
 
 #set user appuser - and give rights to it
 ARG user=appuser
@@ -54,6 +54,7 @@ RUN python micmon/setup.py build install
 USER appuser
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
+COPY . /app/
 
 # build the model
 #CMD [ "python", "model.py"]
