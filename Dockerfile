@@ -34,12 +34,12 @@ RUN pip install https://github.com/PINTO0309/Tensorflow-bin/releases/download/v2
 RUN pip install -U wheel mock six
 RUN pip install protobuf==3.20.*
 
-
 #x386 architecture tensorflow version
 #RUN pip install tensorflow
 
-RUN pip install numpy==1.21.6
-RUN pip install numpy --upgrade
+#RUN pip install numpy==1.21.6
+#RUN pip install numpy --upgrade
+RUN pip install numpy
 
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
@@ -65,4 +65,4 @@ RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channe
 # run the mic
 #CMD [ "python", "run_ml_algo.py"]
 
-CMD ["./entrypoint.sh"]
+CMD ["./app/entrypoint.sh"]
