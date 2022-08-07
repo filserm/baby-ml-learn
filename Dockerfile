@@ -45,12 +45,12 @@ COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 #RUN pip install matplotlib
 
+# setup.py needs root rights
+USER root
 RUN chown -R ${uid}:${gid} /app
 RUN chmod 755 /app
 RUN git clone https://github.com/filserm/micmon
 
-# setup.py needs root rights
-USER root
 RUN python micmon/setup.py build install
 
 USER appuser
