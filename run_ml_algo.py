@@ -18,7 +18,7 @@ with AudioDevice(audio_system, device=audio_device) as source:
         # Pause recording while we process the frame
         source.pause()
         prediction = model.predict(sample)
-        print(prediction)
+        print(f'"babies crying?: {prediction}')
         
         if prediction == "positive":
             cry.count +=1
