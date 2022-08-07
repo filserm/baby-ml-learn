@@ -65,4 +65,4 @@ RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channe
 # run the mic
 #CMD [ "python", "run_ml_algo.py"]
 
-CMD ["./app/entrypoint.sh"]
+CMD ["./entrypoint.sh"]
