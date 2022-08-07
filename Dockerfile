@@ -55,7 +55,7 @@ RUN python micmon/setup.py build install
 
 COPY . /app/
 RUN chown -R ${uid}:${gid} /app
-RUN chmod 755 /app
+RUN chmod 777 /app
 USER appuser
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
