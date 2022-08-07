@@ -42,6 +42,8 @@ RUN pip install protobuf==3.20.*
 
 RUN pip install numpy==1.21.6
 RUN pip install numpy --upgrade
+
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 #RUN pip install matplotlib
 
