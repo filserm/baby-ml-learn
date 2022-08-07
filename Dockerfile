@@ -58,4 +58,4 @@ RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channe
 #CMD [ "python", "model.py"]
 
 # run the mic
-#CMD [ "python", "run_ml_algo.py"]
+CMD [ "python", "run_ml_algo.py"]
