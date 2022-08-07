@@ -49,14 +49,12 @@ RUN pip install -r requirements.txt
 
 RUN git clone https://github.com/filserm/micmon
 
-COPY . /app/
-
 # setup.py needs root rights
 USER root
 RUN python micmon/setup.py build install
 
 USER appuser
-RUN whoami
+COPY . /app/
 RUN micmon-datagen --low 250 --high 2500 --bins 100 --sample-duration 2 --channels 1  datasets/sound-detect/audio  datasets/sound-detect/data
 
 # build the model
