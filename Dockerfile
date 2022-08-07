@@ -50,6 +50,7 @@ RUN pip install -r requirements.txt
 RUN git clone https://github.com/filserm/micmon
 
 COPY . /app/
+RUN chmod 755 /app
 
 # setup.py needs root rights
 USER root
