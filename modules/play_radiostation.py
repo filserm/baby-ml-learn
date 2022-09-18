@@ -18,7 +18,7 @@ def radio():
 
     tunein_service = "SA_RINCON65031_"
 
-    speaker = '192.168.0.34'
+    speaker = '192.168.0.130'
     preset = 0
     limit = 12
 
@@ -26,10 +26,18 @@ def radio():
 
     if mySonos:
         stations = mySonos.music_library.get_favorite_radio_stations(preset, limit)
+        
 
-    #print(stations)
-
-    for station in stations["favorites"]:
+    for station in stations:
+        print (vars(station))
+        print (station.resources)
+        uri = station.resources[0]
+        print (uri, type(uri))
+        metadata = meta_template.format(title=station.title, service=tunein_service)
+        uri = uri.replace("&", "&amp;")
+        print(mySonos.play_uri(uri, metadata))
+        #mySonos.play_uri(station)
+        exit()
         title = station["title"]
         uri = station["uri"]
         uri = uri.replace("&", "&amp;")
@@ -41,3 +49,6 @@ def radio():
             break
     
     print ("playing ...")
+
+if __name__ == '__main__':
+    radio()

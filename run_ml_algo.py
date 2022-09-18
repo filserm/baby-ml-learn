@@ -1,9 +1,11 @@
-import os  
+import os 
+import time 
 
 from micmon.audio import AudioDevice
 from micmon.model import Model
 
 from modules.play_radiostation import radio
+from modules.activate_ligths import Light
 
 model_dir = os.path.expanduser('models/sound-detect')
 model = Model.load(model_dir)
@@ -29,7 +31,14 @@ with AudioDevice(audio_system, device=audio_device) as source:
         if cry.count > 3 and not cry.action == 1:
             cry.action = 1
             #play radio
-            radio()
+            #radio()
+
+            #turn on lights
+            l = Light()
+            light, dim_state = l.turnon_light(dim=5)
+            l.brightness_up(dim_state=dim_state)
+            time.sleep(20)
+            l.turnoff_light()
 
         # Resume recording
         source.resume()
